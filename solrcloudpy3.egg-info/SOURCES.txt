@@ -1,0 +1,14 @@
+solrcloudpy3/__init__.py
+solrcloudpy3/connection.py
+solrcloudpy3/parameters.py
+solrcloudpy3/utils.py
+solrcloudpy3.egg-info/PKG-INFO
+solrcloudpy3.egg-info/SOURCES.txt
+solrcloudpy3.egg-info/dependency_links.txt
+solrcloudpy3.egg-info/top_level.txt
+solrcloudpy3/collection/__init__.py
+solrcloudpy3/collection/admin.py
+solrcloudpy3/collection/indexer.py
+solrcloudpy3/collection/schema.py
+solrcloudpy3/collection/search.py
+solrcloudpy3/collection/stats.py
