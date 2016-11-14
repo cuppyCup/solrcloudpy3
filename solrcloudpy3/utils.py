@@ -278,6 +278,9 @@ class SolrResponse(object):
         """
         return "<SolrResponse [%s]>" % self.code
 
+    def __getitem__(self, item):
+        return self.__dict__[item]
+
 
 class AsyncResponse(SolrResponse):
 
@@ -305,7 +308,7 @@ class AsyncResponse(SolrResponse):
 class SolrResponseJSONEncoder(json.JSONEncoder):
 
     def default(self, o):
-        if type(o) == type(SolrResult({})):
+        if isinstance(o, SolrResult):
             val = str(o.__dict__)
             if len(val) > 200:
                 s = val[:100] + ' ... '
