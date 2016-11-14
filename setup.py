@@ -10,7 +10,7 @@ with open('README.rst', 'r') as f:
 
 def get_version():
     return re.search(r"""__version__\s+=\s+(?P<quote>['"])(?P<version>.+?)(?P=quote)""",
-                     open('solrcloudpy/__init__.py').read()).group('version')
+                     open('solrcloudpy3/__init__.py').read()).group('version')
 
 setup(name='solrcloudpy3',
       version=get_version(),
@@ -34,5 +34,5 @@ setup(name='solrcloudpy3',
 
       install_requires=['requests >= 2.2.1', 'IPython >= 1.2.0', 'semver == 2.4.1'],
       extras_require={"ip": ['IPython >= 1.2.0']},
-      packages=find_packages(exclude=['ez_setup'])
+      packages=["solrcloudpy3", "solrcloudpy3.collection"]
 )
