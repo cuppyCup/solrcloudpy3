@@ -292,6 +292,7 @@ class AsyncResponse(SolrResponse):
         :param async_id: the id we are using to identify the asynchronous interaction
         :type async_id: str
         """
+        SolrResponse.__init__(response_obj)
         # try to parse the content of this response as json
         # if that fails, try to save the text
         result = None
