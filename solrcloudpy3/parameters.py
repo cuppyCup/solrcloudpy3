@@ -591,3 +591,6 @@ class SearchOptions(object):
     def __repr__(self):
         res = dict([(c.__class__.__name__.lower(), c) for c in self._all])
         return repr(res)
+
+    def __getitem__(self, item):
+        return self.__dict__[item]
