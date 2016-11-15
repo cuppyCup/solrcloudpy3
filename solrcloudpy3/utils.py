@@ -1,5 +1,6 @@
 from requests.exceptions import ConnectionError, HTTPError
 from requests.auth import HTTPBasicAuth
+from .parameters import SearchOptions
 
 import requests
 try:
@@ -81,8 +82,9 @@ class _Request(object):
 
         if hasattr(params, 'items'):
             resparams.update(iter(params.items()))
-        else:
-            raise ValueError("params does not have 'items' attribute: {}, {}".format(type(params), params))
+        elif isinstance(params, SearchOptions):
+            for item in params.iteritems():
+                resparams.update({item[0]: item[1]})
 
         retry_states = dict([(server, 0) for server in iter(self.connection.servers)])
         servers = retry_states.keys()
